@@ -46,3 +46,11 @@ Layouts
 https://getbootstrap.com/docs/4.0/examples/
 
 Dockerized React
+
+Environment Variables in DockerCompose
+https://adamtheautomator.com/docker-compose-environment-variables/
+
+# django-cors-headers==3.7.0
+# PyJWT==2.0.1
+# django-redis==4.12.1
+# stripe==2.56.0

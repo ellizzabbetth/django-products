@@ -21,3 +21,19 @@ http://localhost:8000/api/docs/
 
 OTP 
 https://www.twilio.com/blog/enable-multiple-otp-methods-django
+http://localhost:8000/api/profile/
+
+Postman
+
+Stripe
+
+ML/Tensorflow
+https://datagraphi.com/blog/post/2020/8/30/docker-guide-build-a-fully-production-ready-machine-learning-app-with-react-django-and-postgresql-on-docker
+https://github.com/BobsProgrammingAcademy/image-classification-mnist/tree/master/frontend/src
+https://developers.google.com/machine-learning/crash-course/generalization/peril-of-overfitting
+
+Voice API
+https://www.twilio.com/blog/drop-in-audio-chat-django-react-twilio-programmable-voice
+
+Distributed Celery
+https://betterprogramming.pub/distributed-task-queues-with-celery-rabbitmq-django-703c7857fc17

@@ -23,6 +23,7 @@ services:
       - DB_USER=devuser
       - DB_PASS=changeme
       - DEBUG=1
+      - TWILIO_ACCOUNT_SID=ACc27e1ed9a106423135b1de808f24bb61
     depends_on:
       - db
 

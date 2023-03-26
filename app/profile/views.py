@@ -5,6 +5,7 @@ from .models import Profile
 import random
 from .helper import MessageHandler
 
+from profile.forms import ProfileCreateForm
 
 def home(request):
     if request.COOKIES.get('verified') and request.COOKIES.get('verified')!=None:
@@ -14,20 +15,28 @@ def home(request):
 
 def register(request):
     if request.method=="POST":
-        if User.objects.filter(username__iexact=request.POST['user_name']).exists():
-            return HttpResponse("User already exists")
+        print(request.POST['methodOtp'])
+        print(request.POST['user_name'])
+        form = ProfileCreateForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+        # if User.objects.filter(username__iexact=request.POST['user_name']).exists():
+        #     return HttpResponse("User already exists")
 
-        user=User.objects.create(username=request.POST['user_name'])
-        otp=random.randint(1000,9999)
-        profile=Profile.objects.create(user=user,phone_number=request.POST['phone_number'],otp=f'{otp}')
-        if request.POST['methodOtp']=="methodOtpWhatsapp":
-            messagehandler=MessageHandler(request.POST['phone_number'],otp).send_otp_via_whatsapp()
-        else:
-            messagehandler=MessageHandler(request.POST['phone_number'],otp).send_otp_via_message()
-        red=redirect(f'otp/{profile.uid}/')
-        red.set_cookie("can_otp_enter",True,max_age=600)
-        return red  
-    return render(request, 'register.html')
+        # user=User.objects.create(username=request.POST['user_name'])
+        # otp=random.randint(1000,9999)
+        # profile=Profile.objects.create(user=user,phone_number=request.POST['phone_number'],otp=f'{otp}')
+        # if request.POST['methodOtp']=="methodOtpWhatsapp":
+        #     messagehandler=MessageHandler(request.POST['phone_number'],otp).send_otp_via_whatsapp()
+        # else:
+        #     messagehandler=MessageHandler(request.POST['phone_number'],otp).send_otp_via_message()
+        # red=redirect(f'otp/{profile.uid}/')
+        # red.set_cookie("can_otp_enter",True,max_age=600)
+        # return red
+    else:
+        form = ProfileCreateForm()
+    return render(request, 'register.html', {'form':form})
 
 def otpVerify(request,uid):
     if request.method=="POST":

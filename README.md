@@ -15,6 +15,10 @@ docker-compose run --rm app sh  -c "python manage.py wait_for_db && python manag
 ADMIN
 docker-compse run --rm app sh -c "python manage.py createsuperuser"
 
+Requirements
+docker-compose up -d
+docker-compose exec app sh
+pip install Faker
 
 Automated Testing
 http://localhost:8000/api/docs/
@@ -37,3 +41,8 @@ https://www.twilio.com/blog/drop-in-audio-chat-django-react-twilio-programmable-
 
 Distributed Celery
 https://betterprogramming.pub/distributed-task-queues-with-celery-rabbitmq-django-703c7857fc17
+
+Layouts
+https://getbootstrap.com/docs/4.0/examples/
+
+Dockerized React

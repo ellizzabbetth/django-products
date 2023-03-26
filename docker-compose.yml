@@ -1,7 +1,7 @@
 version: "3.9"
 
 services:
-  app:
+  app: # backend
     build:
       context: .
       args:
@@ -18,12 +18,12 @@ services:
              python manage.py migrate &&
              python manage.py runserver 0.0.0.0:8000"
     environment:
-      - DB_HOST=db
-      - DB_NAME=devdb
-      - DB_USER=devuser
-      - DB_PASS=changeme
+      - DB_HOST={DB_HOST}
+      - DB_NAME={DB_NAME}
+      - DB_USER={DB_USER}
+      - DB_PASS=${DB_PASS}
       - DEBUG=1
-      - TWILIO_ACCOUNT_SID=ACc27e1ed9a106423135b1de808f24bb61
+      - TWILIO_ACCOUNT_SID=${TWILIO_ACCOUNT_SID}
     depends_on:
       - db
 

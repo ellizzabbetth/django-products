@@ -14,3 +14,10 @@ docker-compose run --rm app sh  -c "python manage.py wait_for_db && python manag
 
 ADMIN
 docker-compse run --rm app sh -c "python manage.py createsuperuser"
+
+
+Automated Testing
+http://localhost:8000/api/docs/
+
+OTP 
+https://www.twilio.com/blog/enable-multiple-otp-methods-django

@@ -46,6 +46,7 @@ Layouts
 https://getbootstrap.com/docs/4.0/examples/
 
 Dockerized React
+https://saasitive.com/tutorial/docker-compose-django-react-nginx-let-s-encrypt/
 
 Environment Variables in DockerCompose
 https://adamtheautomator.com/docker-compose-environment-variables/

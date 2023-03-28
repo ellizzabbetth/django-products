@@ -12,6 +12,10 @@ docker-compose run --rm app sh -c "python manage.py startapp core"
 docker-compose run --rm app sh  --rm app sh -c "python manage.py makemigrations"
 docker-compose run --rm app sh  -c "python manage.py wait_for_db && python manage.py migrate"
 
+
+docker-compose run --rm frontend sh -c 'npm i nodemon'
+docker-compose logs -f -t app
+
 ADMIN
 docker-compse run --rm app sh -c "python manage.py createsuperuser"
 

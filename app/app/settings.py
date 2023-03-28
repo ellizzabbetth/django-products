@@ -44,10 +44,14 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'drf_spectacular',
     'user',
+    'administrator',
+    'corsheaders',
+
 
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -141,3 +145,7 @@ REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
+ # enable the front-end to use the backend APIs.
+CORS_ORIGIN_ALLOW_ALL = True
+# allow the front end to get the cookies that we generated in LoginApiView
+CORS_ALLOW_CREDENTIALS = True 

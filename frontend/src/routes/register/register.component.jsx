@@ -22,8 +22,8 @@ class Register extends Component {
         e.preventDefault();
         // localhost:8000/api/admin/register
         await axios.post('register', {
-            first_name: this.first_name,
-            last_name: this.last_name,
+            name: this.name,
+            //last_name: this.last_name,
             email: this.email,
             password: this.password,
             password_confirm: this.password_confirm,
@@ -42,13 +42,13 @@ class Register extends Component {
                  <form onSubmit={this.submit}>
                     <h1 className="h3 mb-3 fw-normal">Please register</h1>
 
-                    <input className="form-control" placeholder="First Name" required
-                           onChange={e => this.first_name = e.target.value}
+                    <input className="form-control" placeholder="Name" required
+                           onChange={e => this.name = e.target.value}
                     />
 
-                    <input className="form-control" placeholder="Last Name" required
+                    {/* <input className="form-control" placeholder="Last Name" required
                            onChange={e => this.last_name = e.target.value}
-                    />
+                    /> */}
 
                     <input type="email" className="form-control" placeholder="Email" required
                            onChange={e => this.email = e.target.value}

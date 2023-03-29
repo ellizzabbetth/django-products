@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 // import './Login.css'
 //import styled, { css } from 'styled-components'
 import { Navigate, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+
+import { UserContext } from "../../contexts/user.context";
 
 
 // const StyledMain = styled.main`
@@ -17,16 +19,20 @@ const SignIn = () => {
     const [password, setPassword] = useState('');
     const [redirect, setRedirect] = useState(false);
     let navigate = useNavigate();
+    console.log(redirect)
+
+    const { setCurrentUser } = useContext(UserContext);
 
     // POST /api/admin/login
     const submit = async (e) => {
         console.log(redirect)
         e.preventDefault();
-        await axios.post('login', {
+        const { user } = await axios.post('login', {
             email,
             password
         }, {withCredentials: true});
-    
+        console.log(user)
+        setCurrentUser(user)
         setRedirect(true)
       
         if (redirect) {

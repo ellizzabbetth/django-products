@@ -5,3 +5,4 @@ drf-spectacular>=0.22.1,<0.23
 twilio>=6.3.0
 Faker==18.0.0
 django-cors-headers==3.7.0
+PyJWT==2.0.1

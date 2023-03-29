@@ -3,13 +3,13 @@ version: "3.9"
 services:
   app:
     build:
-      context: ./app
+      context: ./app # inside the app directory is all the source code for the app service
       args:
         - DEV=true 
     ports:
       - "8000:8000"
     volumes:
-      - ./app:/app/app
+      - ./app:/app/app # book
     # command: >
     #   sh -c "python manage.py runserver 0.0.0.0:8000"
     #  - dev-static-data:/vol/web

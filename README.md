@@ -18,6 +18,7 @@ docker-compose logs -f -t app
 
 ADMIN
 docker-compse run --rm app sh -c "python manage.py createsuperuser"
+docker-compose exec app sh:>> /app/app : pip install -r requirements.txt
 
 Requirements
 docker-compose up -d

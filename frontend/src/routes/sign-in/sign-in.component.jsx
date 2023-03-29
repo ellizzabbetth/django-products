@@ -27,12 +27,17 @@ const SignIn = () => {
     const submit = async (e) => {
         console.log(redirect)
         e.preventDefault();
-        const { user } = await axios.post('login', {
+        // await axios.post('login', {
+        //     email,
+        //     password
+        // }, {withCredentials: true})
+        // .then(response => setCurrentUser(response?.data?.user))
+        const { data } = await axios.post('login', {
             email,
             password
-        }, {withCredentials: true});
-        console.log(user)
-        setCurrentUser(user)
+        }, {withCredentials: true})
+        setCurrentUser(data?.user)
+
         setRedirect(true)
       
         if (redirect) {

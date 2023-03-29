@@ -1,5 +1,5 @@
-import { Fragment, useContext } from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import { Fragment, useContext, useState } from 'react';
+import { Outlet, Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../contexts/user.context';
 //import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
 import axios from 'axios';
@@ -8,8 +8,10 @@ import './navigation.styles.scss';
 const Navigation = () => {
 
   const { currentUser, setCurrentUser } = useContext(UserContext);
-  console.log(currentUser)
+  let navigate = useNavigate();
+
   const signOutHandler = async (e) => {
+    console.log(currentUser)
     // await signOutUser();
     // call to /logout
     e.preventDefault();
@@ -18,6 +20,9 @@ const Navigation = () => {
         // password
     }, {withCredentials: true});
     setCurrentUser(null);
+    return navigate("/auth");
+      
+ 
   };
 
   return (

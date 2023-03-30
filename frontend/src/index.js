@@ -7,7 +7,7 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { UserProvider } from "./contexts/user.context";
 import { ProductsProvider } from "./contexts/products.context";
-
+import { CartProvider } from "./contexts/cart.context";
 
 axios.defaults.baseURL = 'http://localhost:8000/api/admin'; // TODO
 axios.defaults.withCredentials = true;
@@ -19,8 +19,10 @@ render(
     <BrowserRouter>
     <UserProvider>
       <ProductsProvider>
+        <CartProvider>
 
-      <App />
+          <App />
+        </CartProvider>
       </ProductsProvider>
     </UserProvider>
     </BrowserRouter>

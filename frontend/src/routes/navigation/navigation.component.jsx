@@ -4,6 +4,7 @@ import { UserContext } from '../../contexts/user.context';
 import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
 import CartIcon from '../../components/cart-icon/cart-icon.component';
 import CartDropdown from '../../components/cart-dropdown/cart-dropdown.component';
+import { CartContext } from '../../contexts/cart.context'
 
 import axios from 'axios';
 import './navigation.styles.scss';
@@ -11,6 +12,7 @@ import './navigation.styles.scss';
 const Navigation = () => {
 
   const { currentUser, setCurrentUser } = useContext(UserContext);
+  const { isCartOpen } = useContext(CartContext);
   let navigate = useNavigate();
 
   const signOutHandler = async (e) => {
@@ -50,9 +52,8 @@ const Navigation = () => {
             </Link>
           )}
           <CartIcon/>
-
         </div>
-        <CartDropdown/>
+        {isCartOpen && <CartDropdown/>}
       </div>
       <Outlet />
     </Fragment>

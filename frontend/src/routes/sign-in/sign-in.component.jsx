@@ -21,7 +21,7 @@ const SignIn = () => {
     let navigate = useNavigate();
     console.log(redirect)
 
-    const { setCurrentUser } = useContext(UserContext);
+    const { setCurrentUser, fetch: fetchUser } = useContext(UserContext);
 
     // POST /api/admin/login
     const submit = async (e) => {
@@ -36,6 +36,7 @@ const SignIn = () => {
             email,
             password
         }, {withCredentials: true})
+        await fetchUser()
         setCurrentUser(data?.user)
 
         setRedirect(true)

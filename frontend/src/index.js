@@ -6,6 +6,7 @@ import axios from "axios";
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { UserProvider } from "./contexts/user.context";
+import { ProductsProvider } from "./contexts/products.context";
 
 
 axios.defaults.baseURL = 'http://localhost:8000/api/admin'; // TODO
@@ -17,8 +18,10 @@ render(
   <React.StrictMode>
     <BrowserRouter>
     <UserProvider>
-      <App />
+      <ProductsProvider>
 
+      <App />
+      </ProductsProvider>
     </UserProvider>
     </BrowserRouter>
   </React.StrictMode>,

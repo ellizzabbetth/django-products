@@ -61,3 +61,8 @@ https://adamtheautomator.com/docker-compose-environment-variables/
 # django-redis==4.12.1
 # stripe==2.56.0
 
+React Update Context
+https://stackoverflow.com/questions/41030361/how-to-update-react-context-from-inside-a-child-component
+https://marmelab.com/blog/2019/03/07/react-admin-advanced-recipes-user-profile.html
+https://www.digitalocean.com/community/tutorials/react-manage-user-login-react-context
+https://codesandbox.io/s/overlaytrigger-bootstrap-ieipe?file=/src/index.js

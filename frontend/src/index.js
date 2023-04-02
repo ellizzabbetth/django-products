@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { render } from 'react-dom';
+//i-mport { render } from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.scss';
 import axios from "axios";
 import App from './App';
@@ -12,9 +13,10 @@ import { CartProvider } from "./contexts/cart.context";
 axios.defaults.baseURL = 'http://localhost:8000/api/admin'; // TODO
 axios.defaults.withCredentials = true;
 
-const rootElement = document.getElementById('root');
+//const rootElement = document.getElementById('root');
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
-render(
+root.render(
   <React.StrictMode>
     <BrowserRouter>
     <UserProvider>
@@ -27,5 +29,5 @@ render(
     </UserProvider>
     </BrowserRouter>
   </React.StrictMode>,
-  rootElement
+  //rootElement
 );

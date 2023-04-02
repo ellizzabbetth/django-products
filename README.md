@@ -47,6 +47,9 @@ https://www.twilio.com/blog/drop-in-audio-chat-django-react-twilio-programmable-
 Distributed Celery
 https://betterprogramming.pub/distributed-task-queues-with-celery-rabbitmq-django-703c7857fc17
 
+DB PGADMIN
+https://hevodata.com/learn/pgadmin-docker/
+
 Layouts
 https://getbootstrap.com/docs/4.0/examples/
 
@@ -65,4 +68,5 @@ React Update Context
 https://stackoverflow.com/questions/41030361/how-to-update-react-context-from-inside-a-child-component
 https://marmelab.com/blog/2019/03/07/react-admin-advanced-recipes-user-profile.html
 https://www.digitalocean.com/community/tutorials/react-manage-user-login-react-context
-https://codesandbox.io/s/overlaytrigger-bootstrap-ieipe?file=/src/index.js
+https://upmostly.com/tutorials/how-to-use-the-usecontext-hook-in-react
+https://www.youtube.com/watch?v=I1cpb0tYV74

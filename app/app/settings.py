@@ -46,6 +46,9 @@ INSTALLED_APPS = [
     'user',
     'administrator',
     'corsheaders',
+   # 'product',
+  #  'category',
+ #   'profile'
 
 
 ]

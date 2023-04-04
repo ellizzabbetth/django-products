@@ -48,7 +48,11 @@ Distributed Celery
 https://betterprogramming.pub/distributed-task-queues-with-celery-rabbitmq-django-703c7857fc17
 
 DB PGADMIN
-https://hevodata.com/learn/pgadmin-docker/
+https://hevodata.com/learn/pgadmin-docker/   localhost:8080
+
+Fixtures
+docker-compse run --rm app sh -c "python manage.py loaddate app/fixtures/*.json"
+
 
 Layouts
 https://getbootstrap.com/docs/4.0/examples/

@@ -5,10 +5,12 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from common.authentication import JWTAuthentication
-from core.models import User, Product#, Link, Order
+from core.models import User, Product, Category#, Link, Order
 from common.serializers import UserSerializer
-from .serializers import ProductSerializer#, LinkSerializer, OrderSerializer
+from .serializers import ProductSerializer, CategoryTitleSerializer#, LinkSerializer, OrderSerializer
 from django.core.cache import cache
+from rest_framework import status
+from collections import defaultdict
 
 
 # Create your views here.
@@ -18,15 +20,23 @@ class ProductGenericAPIView(
 ):
     # authentication_classes = [JWTAuthentication]
     # permission_classes = [IsAuthenticated]
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
+    # queryset = Product.objects.all()
+    # serializer_class = ProductSerializer
 
     def get(self, request, pk=None):
-        print('product -- ')
         if pk:
             return self.retrieve(request, pk)
 
-        return self.list(request)
+
+        qs = Category.objects.all()
+        cats_dict = CategoryTitleSerializer(qs, many=True).data     
+        context = {
+            # 'data': {
+
+            # },
+            'items': cats_dict
+        }
+        return Response(context, status=status.HTTP_200_OK)
 
     # def post(self, request):
     #     response = self.create(request)

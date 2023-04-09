@@ -13,13 +13,10 @@ export const CategoriesProvider = ({ children }) => {
   // only run when provider has mounted
   useEffect(() => {
     const getCategoriesMap = async () => {
-      const categoryMap = await axios.get('products', {
-
-      })
-      // console.log(test)
-      // const categoryMap = await getCategories(); // db
+      const categoryMap = await getCategories(); // db
       console.log(categoryMap.data)
-      setCategoriesMap(categoryMap.data)
+    //  setCategoriesMap(SHOP_DATA )
+      setCategoriesMap(categoryMap.data.items)
     }
     getCategoriesMap();
   }, [])
@@ -35,7 +32,11 @@ export const CategoriesProvider = ({ children }) => {
 
 export const getCategories = async () => {
   // db call
-  let categoryMap = {};
+  let categoryMap = await axios.get('products', {
+
+  })
+  console.log(categoryMap)
+ // let categoryMap = {};
   return categoryMap;
 }
 /*

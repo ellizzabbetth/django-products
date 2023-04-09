@@ -1,0 +1,23 @@
+[
+    {
+        "model": "core.category",
+        "pk": 1,
+        "fields": {    
+            "title": "Hats"
+        }
+    },
+    {
+        "model": "core.category",
+        "pk": 2,
+        "fields": {    
+            "title": "Sneakers"
+        }
+    },
+    {
+        "model": "core.category",
+        "pk": 3,
+        "fields": {    
+            "title": "Jackets"
+        }
+    }
+]

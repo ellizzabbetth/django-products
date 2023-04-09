@@ -30,6 +30,7 @@ services:
   db:
     container_name: postgres_container
     image: postgres:13-alpine
+    restart: always
     volumes:
       - dev-db-data:/var/lib/postgresql/data
     environment:

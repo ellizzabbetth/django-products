@@ -52,7 +52,11 @@ https://hevodata.com/learn/pgadmin-docker/   localhost:8080
 
 Fixtures
 docker-compse run --rm app sh -c "python manage.py loaddate app/fixtures/*.json"
+https://stackoverflow.com/questions/57309417/populate-django-db-with-local-json-file
 
+DB
+https://zerotobyte.com/complete-guide-to-django-foreignkey/
+ForeignKey should be placed in the Child table, referencing the Parent table.
 
 Layouts
 https://getbootstrap.com/docs/4.0/examples/

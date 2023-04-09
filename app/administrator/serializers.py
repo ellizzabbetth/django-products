@@ -1,12 +1,36 @@
 from rest_framework import serializers
 
-from core.models import Product#, Link, OrderItem, Order
+from core.models import Product, Category#, Link, OrderItem, Order
 
 
 class ProductSerializer(serializers.ModelSerializer):
+   # category = CategorySerializer(many=True, required=False)
+
     class Meta:
         model = Product
-        fields = '__all__'
+        fields = [
+            'id', 'name', 'price', 'imageUrl'
+        ]
+
+# https://stackoverflow.com/questions/28532420/django-rest-framework-keeps-returning-error-on-nested-relationship
+class CategorySerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Category
+        fields = [
+            'id', 'title', 'category_product'
+        ]
+
+
+class CategoryTitleSerializer(serializers.ModelSerializer):
+    products = ProductSerializer(many=True, required=False)
+    class Meta:
+        model = Category
+        fields = ['title', 'products']
+
+
+
+
 
 
 # class LinkSerializer(serializers.ModelSerializer):

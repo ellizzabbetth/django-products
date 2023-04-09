@@ -49,17 +49,7 @@ class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default='')
     file_avatar = models.FileField(upload_to='file_avatar/', default='', null=True, blank=True)
 
-class Product(models.Model):
-    name = models.CharField(max_length=255)
-    price = models.DecimalField(max_length=10, decimal_places=2, max_digits=5)
-    imageUrl = models.CharField(max_length=255)
-    category = models.ManyToManyField('Category', related_name='category_products', blank=True)
 
-    def __unicode__(self):
-        return self.name
-
-    def __str__(self):
-        return f'{self.id}: {self.name}'
 
 category_choices = [
     ('hats', 'hats'),
@@ -68,8 +58,11 @@ category_choices = [
     ('sneakers', 'sneakers'),
     ('womens', 'womens')
 ]
-
+# category is parent of product
 class Category(models.Model):
+    class Meta:
+      unique_together = ['title']
+
     title = models.CharField(choices=category_choices, max_length=40, null=True, blank=True, default='womens')
 
     def __unicode__(self):
@@ -77,3 +70,17 @@ class Category(models.Model):
 
     def __str__(self):
         return f'{self.id}: {self.title}'
+
+
+class Product(models.Model):
+    name = models.CharField(max_length=255)
+    price = models.DecimalField(max_length=10, decimal_places=2, max_digits=5)
+    imageUrl = models.CharField(max_length=255)
+    # category is parent of Product
+    category = models.ManyToManyField(Category, related_name='products', blank=True)
+
+    def __unicode__(self):
+        return self.name
+
+    def __str__(self):
+        return f'{self.id}: {self.name}'

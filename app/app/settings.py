@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'user',
     'administrator',
     'corsheaders',
+    'checkout'
    # 'product',
   #  'category',
  #   'profile'
@@ -118,6 +119,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+if NON_PROD:
+    STRIPE_API_KEY = os.environ.get('STRIPE_API_KEY')
+    print(STRIPE_API_KEY)
+    STRIPE_WEB_HOOK = 'webhook'
+    DOMAIN = 'https://elizabeth.com/'
+else:
+    STRIPE_API_KEY = 'PROD'
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/

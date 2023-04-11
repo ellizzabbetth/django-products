@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import axios from 'axios';
 // import { useSelector } from 'react-redux';
 
 // import { selectCartTotal } from '../../store/cart/cart.selector';
@@ -22,6 +23,13 @@ const PaymentForm = () => {
       return;
     }
     setIsProcessingPayment(true);
+
+    const {data} = await axios.post(`http://localhost:8000/api/checkout/orders`, {
+      // name,
+      // email,
+      // code,
+      // products: quantities
+    })
     // const response = await fetch('/.netlify/functions/create-payment-intent', {
     //   method: 'post',
     //   headers: {

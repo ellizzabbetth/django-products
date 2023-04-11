@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from 'react';
 import axios from "axios";
 //import PRODUCTS from '../shop-data.json';
-import SHOP_DATA from '../shop-data.js';
+//import SHOP_DATA from '../../../app/app/fixtures/shop-data.js';
 
 export const CategoriesContext = createContext({
   categoriesMap: {},

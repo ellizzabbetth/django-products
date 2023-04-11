@@ -19,5 +19,19 @@
         "fields": {    
             "title": "Jackets"
         }
+    },
+    {
+        "model": "core.category",
+        "pk": 4,
+        "fields": {    
+            "title": "Womens"
+        }
+    },
+    {
+        "model": "core.category",
+        "pk": 5,
+        "fields": {    
+            "title": "Mens"
+        }
     }
 ]
